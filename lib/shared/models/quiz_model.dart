@@ -4,7 +4,7 @@ import 'package:dev_quiz/shared/models/question_model.dart';
 
 enum Level { facil, medio, dificil, perito }
 
-extension LevelStringExt on String {
+extension StringToLevelExt on String {
   Level get parse => {
         "facil": Level.facil,
         "medio": Level.medio,
@@ -13,7 +13,7 @@ extension LevelStringExt on String {
       }[this]!;
 }
 
-extension LevelExt on Level {
+extension LevelToStringExt on Level {
   String get parse => {
         Level.facil: "facil",
         Level.medio: "medio",
@@ -49,7 +49,7 @@ class QuizModel {
 
   factory QuizModel.fromMap(Map<String, dynamic> map) {
     return QuizModel(
-      level: map['level'].parse,
+      level: map['level'].toString().parse,
       image: map['image'],
       title: map['title'],
       questionAnswered: map['questionAnswered'],
