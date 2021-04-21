@@ -1,19 +1,19 @@
-import 'question_model.dart';
+import 'package:dev_quiz/shared/models/question_model.dart';
 
 enum Level { facil, medio, dificil, perito }
 
 class QuizModel {
-  final String title;
-  final List<QuestionModel> questions;
-  final int questionAnswered;
-  final String image;
   final Level level;
+  final String image;
+  final String title;
+  final int questionAnswered;
+  final List<QuestionModel> questions;
 
   QuizModel({
-    required this.title,
-    required this.questions,
-    this.questionAnswered = 0,
-    required this.image,
     required this.level,
+    required this.image,
+    required this.title,
+    this.questionAnswered = 0,
+    required this.questions,
   });
 }
