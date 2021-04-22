@@ -1,6 +1,8 @@
-# dev_quiz
+# Dev Quiz APP
 
-A new Flutter project.
+This repository is the code corresponding to the [nlw#5 - trilha flutter](https://nextlevelweek.com/) lab.
+
+> The project simulates a quiz APP that allows to answer the questions about development.
 
 ## Getting Started
 
