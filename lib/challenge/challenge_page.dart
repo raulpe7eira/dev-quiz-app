@@ -1,3 +1,4 @@
+import 'package:dev_quiz/challenge/challenge_controller.dart';
 import 'package:dev_quiz/challenge/widgets/next_button/next_button_widget.dart';
 import 'package:dev_quiz/challenge/widgets/question_indicator/question_indicator_widget.dart';
 import 'package:dev_quiz/challenge/widgets/quiz/quiz_widget.dart';
@@ -18,6 +19,16 @@ class ChallengePage extends StatefulWidget {
 }
 
 class _ChallengePageState extends State<ChallengePage> {
+  final controller = ChallangeController();
+
+  @override
+  void initState() {
+    controller.currentPageNotifier.addListener(() {
+      setState(() {});
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,11 +40,16 @@ class _ChallengePageState extends State<ChallengePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 BackButton(),
-                QuestionIndicatorWidget(),
+                QuestionIndicatorWidget(
+                  currentPage: controller.currentPage,
+                  length: widget.questions.length,
+                ),
               ],
             )),
       ),
-      body: QuizWidget(question: widget.questions[0]),
+      body: PageView(
+        children: widget.questions.map((e) => QuizWidget(question: e)).toList(),
+      ),
       bottomNavigationBar: SafeArea(
         bottom: true,
         child: Padding(
