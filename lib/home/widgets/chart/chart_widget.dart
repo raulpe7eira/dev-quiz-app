@@ -37,16 +37,16 @@ class _ChartWidgetState extends State<ChartWidget>
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 80,
-      width: 80,
+      height: 75,
+      width: 75,
       child: AnimatedBuilder(
         animation: _animation,
         builder: (context, _) => Stack(
           children: [
             Center(
               child: Container(
-                height: 80,
-                width: 80,
+                height: 75,
+                width: 75,
                 child: CircularProgressIndicator(
                   strokeWidth: 10,
                   value: _animation.value,

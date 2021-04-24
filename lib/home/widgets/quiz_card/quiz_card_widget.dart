@@ -37,9 +37,9 @@ class QuizCardWidget extends StatelessWidget {
               width: 40,
               child: Image.asset(AppImages.blocks),
             ),
-            SizedBox(height: 24),
+            SizedBox(height: 20),
             Text(title, style: AppTextStyles.heading15),
-            SizedBox(height: 24),
+            SizedBox(height: 20),
             Row(
               children: [
                 Expanded(
@@ -47,7 +47,7 @@ class QuizCardWidget extends StatelessWidget {
                   child: Text(progressLabel, style: AppTextStyles.body11),
                 ),
                 Expanded(
-                  flex: 4,
+                  flex: 2,
                   child: ProgressIndicatorWidget(value: progressValue),
                 )
               ],
