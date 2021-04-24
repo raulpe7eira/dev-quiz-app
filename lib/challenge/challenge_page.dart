@@ -1,16 +1,19 @@
 import 'package:dev_quiz/challenge/challenge_controller.dart';
-import 'package:dev_quiz/challenge/widgets/next_button/next_button_widget.dart';
 import 'package:dev_quiz/challenge/widgets/question_indicator/question_indicator_widget.dart';
 import 'package:dev_quiz/challenge/widgets/quiz/quiz_widget.dart';
+import 'package:dev_quiz/result/result_page.dart';
 import 'package:dev_quiz/shared/models/question_model.dart';
+import 'package:dev_quiz/shared/widgets/next_button/next_button_widget.dart';
 
 import 'package:flutter/material.dart';
 
 class ChallengePage extends StatefulWidget {
+  final String title;
   final List<QuestionModel> questions;
 
   ChallengePage({
     Key? key,
+    required this.title,
     required this.questions,
   }) : super(key: key);
 
@@ -38,6 +41,11 @@ class _ChallengePageState extends State<ChallengePage> {
       );
   }
 
+  void onSelected(bool value) {
+    if (value) controller.rightAnswer++;
+    nextPage();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +71,7 @@ class _ChallengePageState extends State<ChallengePage> {
         physics: NeverScrollableScrollPhysics(),
         controller: pageController,
         children: widget.questions
-            .map((e) => QuizWidget(question: e, onChange: nextPage))
+            .map((e) => QuizWidget(question: e, onSelected: onSelected))
             .toList(),
       ),
       bottomNavigationBar: SafeArea(
@@ -87,7 +95,16 @@ class _ChallengePageState extends State<ChallengePage> {
                     child: NextButtonWidget.green(
                       label: "Confirmar",
                       onTap: () {
-                        Navigator.pop(context);
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ResultPage(
+                              title: widget.title,
+                              rights: controller.rightAnswer,
+                              length: widget.questions.length,
+                            ),
+                          ),
+                        );
                       },
                     ),
                   ),
