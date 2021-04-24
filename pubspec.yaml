@@ -32,6 +32,9 @@ dependencies:
   # The following adds the Google fonts to your application.
   google_fonts: ^2.0.0
 
+  # The following adds the share feature to your applications.
+  share_plus: ^2.0.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
