@@ -4,6 +4,10 @@ This repository is the code corresponding to the [nlw#5 - trilha flutter](https:
 
 > The project simulates a quiz APP that allows to answer the questions about development.
 
+| SPLASH | HOME | CHALLENGE | RESULT |
+|--|--|--|--|
+| <img src="./doc/screenshots/splash.png" width="122" height="214"> | <img src="./doc/screenshots/home.png" width="122" height="214"> | <img src="./doc/screenshots/challenge-1.png" width="122" height="214"> <img src="./doc/screenshots/challenge-2.png" width="122" height="214"> | <img src="./doc/screenshots/result.png" width="122" height="214"> |
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
