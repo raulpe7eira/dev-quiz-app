@@ -74,7 +74,6 @@ class ResultPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 34),
                 Row(
                   children: [
                     Expanded(

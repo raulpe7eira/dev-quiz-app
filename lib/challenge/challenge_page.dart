@@ -77,7 +77,7 @@ class _ChallengePageState extends State<ChallengePage> {
       bottomNavigationBar: SafeArea(
         bottom: true,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           child: ValueListenableBuilder<int>(
             valueListenable: controller.currentPageNotifier,
             builder: (context, value, _) => Row(
